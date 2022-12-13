@@ -1,6 +1,6 @@
 {
   "name": "bigint-json-serialization",
-  "version": "1.0.6-alpha",
+  "version": "1.0.7-alpha",
   "description": "JSON bigint serialization/deserialization",
   "author": "Luke Tchang <ltchang@stanford.edu>",
   "license": "MIT",
