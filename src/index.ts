@@ -5,14 +5,13 @@ export function stringify(object: any): string {
 }
 
 export function parse(input: string): any {
+  const stringified = stringify(input);
   return JSON.parse(
-    JSON.parse(
-      JSON.parse(input, (_, value) => {
-        if (typeof value === "string" && /^\d+n$/.test(value)) {
-          return BigInt(value.substring(0, value.length - 1));
-        }
-        return value;
-      })
-    )
+    JSON.parse(stringified, (_, value) => {
+      if (typeof value === "string" && /^\d+n$/.test(value)) {
+        return BigInt(value.substring(0, value.length - 1));
+      }
+      return value;
+    })
   );
 }
