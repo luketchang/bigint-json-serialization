@@ -5,9 +5,9 @@ export function stringify(object: any): string {
 }
 
 export function parse(input: string): any {
-  const stringified = stringify(input);
+  const cleaned = input.split('"')[1].replace(/'/g, '"');
   return JSON.parse(
-    JSON.parse(stringified, (_, value) => {
+    JSON.parse(cleaned, (_, value) => {
       if (typeof value === "string" && /^\d+n$/.test(value)) {
         return BigInt(value.substring(0, value.length - 1));
       }
