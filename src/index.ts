@@ -5,7 +5,7 @@ export function stringify(object: any): string {
 }
 
 export function parse(input: string): any {
-  JSON.parse(input, (_, value) => {
+  return JSON.parse(input, (_, value) => {
     if (typeof value === "string" && /^\d+n$/.test(value)) {
       return BigInt(value.substr(0, value.length - 1));
     }
